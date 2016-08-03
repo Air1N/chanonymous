@@ -52,11 +52,11 @@
 					'background': color
 				});
 			} else {
-				if ($('#m').val().substring(0, 7) == 'http://') {
-					
+				if ($('#m').val().substring(0, 6) == 'http:/') {
+					$('#m').val('')
 				}
-				if ($('#m').val().substring(0, 8) == 'https://') {
-					
+				if ($('#m').val().substring(0, 7) == 'https:/') {
+					$('#m').val('<a href="www.google.com">' + $('#m').val() + '</a>')
 				}
 				socket.emit('chat message', $('#m').val());
 				$('#m').val('');
