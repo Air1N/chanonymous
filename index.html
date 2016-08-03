@@ -33,7 +33,7 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
 		var socket = io();
-		
+		var color = "#e0e0e0"
 		$('form').submit(function() {
 			socket.emit('chat message', $('#m').val());
 			$('#m').val('');
