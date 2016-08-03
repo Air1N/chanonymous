@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Chanonymous - Chat Anonymously</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 1.2em Helvetica, Arial; width: 100%; height: 100%;}
@@ -52,6 +52,12 @@
 					'background': color
 				});
 			} else {
+				if ($('#m').val().substring(0, 7) == 'http://') {
+					$('#m').val('<a href="'$('#m').val('');'">'$('#m').val('');'</a>');
+				}
+				if ($('#m').val().substring(0, 8) == 'https://') {
+					
+				}
 				socket.emit('chat message', $('#m').val());
 				$('#m').val('');
 			}
