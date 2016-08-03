@@ -48,12 +48,13 @@
 			if ($('#m').val().substring(0, 6) == '/color') {
 				color = $('#m').val().toString().substring(7, $('#m').val().length);
 				$('#m').val('');
+			} else {
+				socket.emit('chat message', $('#m').val());
+				$('#m').val('');
+				$('.color-pick').css({
+					'background': color
+				});
 			}
-			socket.emit('chat message', $('#m').val());
-			$('#m').val('');
-			$('.color-pick').css({
-				'background': color
-			});
 			return false;
 		});
 		
