@@ -39,11 +39,6 @@
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
 		
-		String.prototype.startsWith = function(string)
-		{
-    			return(this.indexOf(string) == 0);
-		};
-		
 		socket.on('color message', function(colora){
 			colorb = colora;
 		});
@@ -51,8 +46,8 @@
 		$('form').submit(function() {
 			socket.emit('chat message', $('#m').val());
 			socket.emit('color message', color);
-			if ($('#m').val().startsWith('/color')) {
-				color = $('#m').val().toString() - "/color";
+			if ($('#m').val().substring(0, 6) == '/color') {
+				color = $('#m').val().toString().substring(8, $('#m').val().length)
 			}
 			$('#m').val('');
 			$('.color-pick').css({
