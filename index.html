@@ -59,7 +59,7 @@
 		});
 		
 		socket.on('chat message', function(msg){
-			msg.replace("/:D/g", "KYS")
+			msg.replace(":D", "KYS")
 			if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 				$('#messages').append($('<a href=' + msg + '><li style="color:' + colorb + '">' + msg + '</li></a>'));
 			} else {
