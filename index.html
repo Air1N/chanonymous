@@ -21,12 +21,12 @@
       	#messages { list-style-type: none; margin: 0; padding: 0;}
       	#messages li { padding: 5px 10px; }
       	#messages li:nth-child(odd) { background: #505050;}
-      	.color-pick {width: 2%; background: #420420; margin-right: 0.5%; margin-left: .5%; position: absolute; bottom: 1%;}
+      	.color-pick {position: absolute; bottom: 1%; width: 2%; background: #420420; margin-right: 0.5%; margin-left: .5%;}
       }
     </style>
   </head>
+  <button class="color-pick" style="border-radius: 100%;"></button>
   <body style="background: #303030; color: #e0e0e0">
-    <button class="color-pick" style="border-radius: 100%;"></button>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" style="border-radius: 15px;"/>
