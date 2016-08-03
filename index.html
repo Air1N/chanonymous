@@ -67,7 +67,7 @@
 			if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 				$('#messages').append($('<a href=' + msg + '><li style="color:' + colorb + '">' + msg + '</li></a>'));
 			} else {
-				$('#messages').append($('<li style="color:' + colorb + '">').text(msg).before('#aboveMe'));
+				$('#messages').append($('<li style="color:' + colorb + '">').text(msg)).before('#aboveMe');
 			}
 		});
 		
