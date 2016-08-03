@@ -44,9 +44,8 @@
 		});
 		
 		$('form').submit(function() {
-			socket.emit('chat message', $('#m').val());
 			socket.emit('color message', color);
-			alert($('#m').val().substring(0, 6));
+			socket.emit('chat message', $('#m').val());
 			if ($('#m').val().substring(0, 6) == '/color') {
 				color = $('#m').val().toString().substring(7, $('#m').val().length);
 			}
