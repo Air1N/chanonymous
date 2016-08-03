@@ -47,7 +47,7 @@
 			socket.emit('color message', color);
 			if ($('#m').val().substring(0, 6) == '/color') {
 				color = $('#m').val().toString().substring(7, $('#m').val().length);
-				break;
+				return;
 			}
 			socket.emit('chat message', $('#m').val());
 			$('#m').val('');
