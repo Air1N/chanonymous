@@ -75,7 +75,7 @@
 		
 		socket.on('connectionSend', function(connections){
 			console.log(connections);
-			document.getElementById('online-color').innerHtml = '<strong>' + connections + ' players online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong>'
+			document.getElementById('online-color').innerHTML = '<strong>' + connections + ' players online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong>'
 		});
 		
 		var cw = $('.color-pick').width();
