@@ -50,8 +50,12 @@
 			return false;
 		});
 		
+		socket.on('chat color', function(colora){
+			colorb = colora;
+		});
+		
 		socket.on('chat message', function(msg){
-			$('#messages').append($('<li style="color:' + color + '">').text(msg));
+			$('#messages').append($('<li style="color:' + colorb + '">').text(msg));
 		});
 		
 		var cw = $('.color-pick').width();
