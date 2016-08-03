@@ -39,6 +39,7 @@
 		var color = "#e0e0e0"
 		$('form').submit(function() {
 			socket.emit('chat message', $('#m').val());
+			socket.emit('color message', color);
 			if ($('#m').val('') == "/color red") {
 				color = "#ff0000";
 			}
