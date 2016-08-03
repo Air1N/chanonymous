@@ -56,7 +56,8 @@
 					$('#m').val('')
 				}
 				if ($('#m').val().substring(0, 7) == 'https:/') {
-					$('#m').val('<a href="www.google.com">' + $('#m').val() + '</a>')
+					console.log('yes');
+					$('#m').val('<a href="www.google.com">' + $('#m').val() + '</a>');
 				}
 				socket.emit('chat message', $('#m').val());
 				$('#m').val('');
