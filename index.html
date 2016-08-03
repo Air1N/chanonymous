@@ -45,10 +45,11 @@
 		
 		$('form').submit(function() {
 			socket.emit('color message', color);
-			socket.emit('chat message', $('#m').val());
 			if ($('#m').val().substring(0, 6) == '/color') {
 				color = $('#m').val().toString().substring(7, $('#m').val().length);
+				break;
 			}
+			socket.emit('chat message', $('#m').val());
 			$('#m').val('');
 			$('.color-pick').css({
 				'background': color
