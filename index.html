@@ -52,13 +52,6 @@
 					'background': color
 				});
 			} else {
-				if ($('#m').val().substring(0, 6) == 'http:/') {
-					$('#m').val('')
-				}
-				if ($('#m').val().substring(0, 7) == 'https:/') {
-					console.log('yes');
-					$('#m').val('<a href="www.google.com">' + $('#m').val() + '</a>');
-				}
 				socket.emit('chat message', $('#m').val());
 				$('#m').val('');
 			}
@@ -66,7 +59,11 @@
 		});
 		
 		socket.on('chat message', function(msg){
-			$('#messages').append($('<li style="color:' + colorb + '">').text(msg));
+			if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
+				$('#messages').append($('<a href='msg'><li style="color:' + colorb + '"></a>').text(msg));
+			} else {
+				$('#messages').append($('<li style="color:' + colorb + '">').text(msg));
+			}
 		});
 		
 		var cw = $('.color-pick').width();
