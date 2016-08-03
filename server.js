@@ -9,6 +9,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
    connections++;
+   io.emit('connectionSend', connections);
    console.log('a user connected');
    socket.on('disconnect', function(){
        connections--;
