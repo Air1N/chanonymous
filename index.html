@@ -20,12 +20,14 @@
       	#messages { list-style-type: none; margin: 0; padding: 0; }
       	#messages li { padding: 5px 10px; }
       	#messages li:nth-child(odd) { background: #505050; }
+      	.color-pick {}
       }
     </style>
   </head>
   <body style="background: #303030; color: #e0e0e0">
     <ul id="messages"></ul>
     <form action="">
+      <button class="color-pick" style="border-radius: 15px;"></button>
       <input id="m" autocomplete="off" style="border-radius: 15px;"/>
       <button style="border-radius: 25px;">Send</button>
     </form>
