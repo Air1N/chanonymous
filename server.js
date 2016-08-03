@@ -11,8 +11,8 @@ io.on('connection', function(socket){
    socket.on('chat message', function(msg){
 	io.emit('chat message', msg);
    });
-   socket.on('chat color', function(colora){
-	io.emit('chat color', colora);
+   socket.on('color message', function(colora){
+	io.emit('color message', colora);
    });
 });
 
