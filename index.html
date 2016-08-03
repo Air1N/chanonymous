@@ -60,7 +60,7 @@
 		
 		socket.on('chat message', function(msg){
 			if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
-				$('#messages').append($('<a href="' msg '"><li style="color:' + colorb + '"></a>').text(' ' + msg));
+				$('#messages').append($('<a href=' + msg + '><li style="color:' + colorb + '"></a>').text(' ' + msg));
 			} else {
 				$('#messages').append($('<li style="color:' + colorb + '">').text(msg));
 			}
