@@ -1,2 +1,0 @@
-# chanonymous
-Anonymous Chat
