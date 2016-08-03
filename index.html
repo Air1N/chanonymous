@@ -73,6 +73,10 @@
 			}
 		});
 		
+		socket.on('connectSend', function(connections){
+			console.log(connections);	
+		});
+		
 		var cw = $('.color-pick').width();
 		$('.color-pick').css({
     			'height': cw + 'px'
