@@ -38,6 +38,11 @@
 		var socket = io();
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
+		
+		socket.on('color message', function(colora){
+			colorb = colora;
+		});
+		
 		$('form').submit(function() {
 			socket.emit('chat message', $('#m').val());
 			socket.emit('color message', color);
@@ -49,10 +54,6 @@
 				'background': color
 			});
 			return false;
-		});
-		
-		socket.on('color message', function(colora){
-			colorb = colora;
 		});
 		
 		socket.on('chat message', function(msg){
