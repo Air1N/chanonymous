@@ -12,6 +12,6 @@ io.on('connection', function(socket){
    });
 });
 
-http.listen(4200, function(){
-  console.log('listening on *:4200');
+http.listen(process.env.PORT || 5000, function(){
+  console.log('listening on *: ' + (process.env.PORT).toString());
 });
