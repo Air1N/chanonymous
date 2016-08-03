@@ -74,7 +74,8 @@
 		});
 		
 		socket.on('connectionSend', function(connections){
-			console.log(connections);	
+			console.log(connections);
+			document.getElementById('online-color')
 		});
 		
 		var cw = $('.color-pick').width();
@@ -89,7 +90,7 @@
 		setInterval(ScrollDown, 100/1000)
 	</script>
 	<div>
-  	<button class="color-pick" style="border-radius: 100%; display: inline; position: fixed; bottom: 16.75px; right: 13.25%"></button><p style="font-size: 12px; display: inline; position: fixed; top: 15px; right: 5px"><strong>/color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
+  	<button class="color-pick" style="border-radius: 100%; display: inline; position: fixed; bottom: 16.75px; right: 13.25%"></button><p id="online-color" style="font-size: 12px; display: inline; position: fixed; top: 15px; right: 5px"><strong>%d players online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	</div>
   </body>
 </html>
