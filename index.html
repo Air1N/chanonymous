@@ -46,7 +46,7 @@
 		$('form').submit(function() {
 			socket.emit('chat message', $('#m').val());
 			socket.emit('color message', color);
-			if ($('#m').val('') == "/color red") {
+			if ($('#m').val() == '/color red') {
 				color = "#ff0000";
 			}
 			$('#m').val('');
