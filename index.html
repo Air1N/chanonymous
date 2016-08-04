@@ -43,16 +43,16 @@
 		var socket = io();
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
-		var document.body.scrollTop = 0;
+		
+		function ScrollDown() {
+			document.body.scrollTop += 5;
+		}
+		
+		setInterval(ScrollDown, 10/1000);
+		
 		socket.on('color message', function(colora){
 			colorb = colora;
 		});
-		
-		function ScrollDown() {
-			document.body.scrollTop += 1;
-		}
-		
-		setInterval(ScrollDown, 100/1000);
 		
 		$('form').submit(function() {
 			socket.emit('color message', color);
