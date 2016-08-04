@@ -56,9 +56,17 @@
 		var socket = io();
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
-		var spamTime = 0;
-		var isSpam = 0;
-		var messagesSent = 0;
+		
+		if (getCookie("spamTime") == "") {
+			document.cookie = "spamTime = " + "0" + ";"
+			document.cookie = "hasSent = " + "false" + ";"
+			document.cookie = "isSpam = " + "0" + ";"
+			document.cookie = "messagesSent = " + "0" + ";"
+		}
+		var spamTime = getCookie("spamTime");
+		var hasSent = "false";
+		var isSpam = getCookie("isSpam");
+		var messagesSent = getCookie("messagesSent");
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -167,10 +175,6 @@
 			'background': color
 		});
 		setInterval(spamCounter, 1000/1);
-		document.cookie = "spamTime = " + spamTime + ";"
-		document.cookie = "hasSent = " + hasSent + ";"
-		document.cookie = "isSpam = " + isSpam + ";"
-		document.cookie = "messagesSent = " + messagesSent + ";"
   	</script>
   </body>
 </html>
