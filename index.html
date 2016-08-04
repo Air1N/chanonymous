@@ -96,16 +96,24 @@
 		
 		$('form').submit(function() {
 			socket.emit('color message', color);
-			if ($('#m').val().substring(0, 6) == '/color') {
-				color = $('#m').val().toString().substring(7, $('#m').val().length);
-				$('#m').val('');
-				$('.color-pick').css({
-					'background': color
-				});
-				document.cookie = "color = " + color + ";"
+			document.cookie = "hasSent = true;"
+			messagesSent++;
+			document.cookie = "messagesSent = " + messagesSent + ";"
+			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
+				if ($('#m').val().substring(0, 6) == '/color') {
+					color = $('#m').val().toString().substring(7, $('#m').val().length);
+					$('#m').val('');
+					$('.color-pick').css({
+						'background': color
+					});
+					document.cookie = "color = " + color + ";"
+				} else {
+					socket.emit('chat message', $('#m').val());
+					$('#m').val('');
+				}
+				
 			} else {
-				socket.emit('chat message', $('#m').val());
-				$('#m').val('');
+				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red"><p> You were spamming, you now have a time out of </p><p style="color: purple">' + isSpam + '</p><p> seconds</p></li>');	
 			}
 			return false;
 		});
@@ -137,17 +145,12 @@
 		socket.on('chat message', function(msg){
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
-				document.cookie = "hasSent = true;"
-				messagesSent++;
-				document.cookie = "messagesSent = " + messagesSent + ";"
 				if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 					$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
 				} else {
 					//$('#messages').append($('<li style="color:' + colorb + '">').text(msg)).insertBefore('#aboveMe');
 					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 				}
-			} else {
-				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red"><p> You were spamming, you now have a time out of </p><p style="color: purple">' + isSpam + '</p><p> seconds</p></li>');	
 			}
 		});
 		
