@@ -105,7 +105,7 @@
 			msg = msg.replace(/:D/gi, ":-D");
 			if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/' && msg.toLowerCase().indexOf("<img") != 0) {
 				$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
-			} else if (msg.toLowerCase().indexOf("<img") != ) {
+			} else if (msg.toLowerCase().indexOf("<img") != 0) {
 				//$('#messages').append($('<li style="color:' + colorb + '">').text(msg)).insertBefore('#aboveMe');
 				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 			}
