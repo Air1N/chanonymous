@@ -116,7 +116,7 @@
 		setInterval(spamCounter, 1/1000)
 		
 		socket.on('chat message', function(msg){
-			if (getCookie("hasSent") == "false" && != 0 && msg.toLowerCase().indexOf("<script") != 0) {
+			if (getCookie("hasSent") == "false" && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
 				if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 					$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
