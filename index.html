@@ -113,7 +113,7 @@
 				}
 				
 			} else {
-				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red"><p> You were spamming, you now have a time out of </p><p style="color: purple">' + isSpam + '</p><p> seconds</p></li>');	
+				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red;"><p style="display: inline-block;"> You were spamming, you now have a time out of </p><p style="color: purple; display: inline-block;">' + isSpam + '</p><p style="display: inline-block;"> seconds</p></li>');	
 			}
 			$('#m').val('');
 			return false;
