@@ -113,7 +113,7 @@
 				}
 				
 			} else {
-				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red;"><p style="display: inline-block;"> You were spamming, you now have a time out of </p><p style="color: purple; display: inline-block;">' + isSpam + '</p><p style="display: inline-block;"> seconds</p></li>');	
+				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red;"><p style="display: inline-block;"> You were spamming, you are now muted for </p><p style="color: purple; display: inline-block;">' + " " + isSpam + " " + '</p><p style="display: inline-block;"> seconds</p></li>');	
 			}
 			$('#m').val('');
 			return false;
@@ -140,7 +140,7 @@
 			document.cookie = "isSpam = " + isSpam + ";"
 			
 			if (getCookie("isSpam") === 0) {
-				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: lime;"><p style="display: inline-block;"> Your penalty is complete! You may now chat again!</p></li>');	
+				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: lime;"><p style="display: inline-block;">Your mute is over! You may now chat again!</p></li>');	
 			}
 			
 			console.log('isSpam: ' + isSpam + ' spamTime: ' + spamTime + ' messagesSent: ' + messagesSent);
