@@ -13,7 +13,7 @@
       #messages { list-style-type: none; margin: 0; padding: 0; width: 100%;}
       #messages li { padding: 2px 10px; border: 1px #202020 solid;}
       #messages li:nth-child(odd) { background: #343434; }
-      .mobile-change {font-size: 0.75em;}
+      .mobile-change {font-size: 0.75em; position: fixed; right: 5px; top: 5px}
       .color-pick {border-radius: 100%; width: 20px; height: 20px; background: #e0e0e0; bottom: 2.5%; right: 13.5%; padding: 10px; margin-right: 0.5%; margin-left: .5%}
       @media only screen and (max-width: 1000px) {
       	* { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,7 +27,7 @@
       	#andMe {padding-top: 20px;}
       	#aboveMe {padding-top: 20px;}
       	.color-pick {right: -10px; border-radius: 25px; position: absolute; width: 25px; height: 82.5%; background: #e0e0e0; margin-right: 0.5%; margin-left: .5%; padding: 10px; top: -10px;}
-      	.mobile-change {font: 0.75em 'Comfortaa', cursive; font-weight: bold;}
+      	.mobile-change {font: 0.75em 'Comfortaa', cursive; font-weight: bold; position: fixed; left: 5px; top: 5px}
       	
       }
     </style>
@@ -123,7 +123,7 @@
 	</script>
 	<div>
 	<button class="color-pick" style="font: 1em 'Comfortaa', cursive; font-weight: bold; display: inline; position: fixed;"></button>
-  	<p id="online-color" class="mobile-change" style="display: inline; position: fixed; left: 5px; top: 5px"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
+  	<p id="online-color" class="mobile-change" style="display: inline;"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	</div>
   	<script>
   		$('.color-pick').css({
