@@ -21,7 +21,7 @@
       	#messages { list-style-type: none; margin: 0; padding: 0; width: 100%;}
       	#messages li { padding: 5px 10px; border: 1px #202020 solid;}
       	#messages li:nth-child(odd) { background: #505050;}
-      	.color-pick {position: absolute; top: 50px; right: -75px; width: 150px; height: 150px; background: #e0e0e0;}
+      	.color-pick {position: absolute; top: -75px; right: -75px; width: 150px; height: 150px; background: #e0e0e0;}
       }
     </style>
   </head>
@@ -113,8 +113,9 @@
 		});
 	</script>
 	<div>
-  	<button class="color-pick" style="border-radius: 100%; display: inline; position: fixed;></button><p id="online-color" style="font-size: 12px; display: inline; position: fixed; top: 15px; right: 5px"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
+  	<button class="color-pick" style="border-radius: 100%; display: inline; position: fixed;></button>
   	</div>
+  	<p id="online-color" style="font-size: 12px; display: inline; position: fixed; top: 15px; right: 5px"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	<script>
   		$('.color-pick').css({
 			'background': color
