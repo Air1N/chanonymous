@@ -99,7 +99,7 @@
 			document.cookie = "hasSent = true;"
 			messagesSent++;
 			document.cookie = "messagesSent = " + messagesSent + ";"
-			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
+			if (getCookie("isSpam") <= 0 && $('#m').val().toString().toLowerCase().indexOf("<script") != 0) {
 				if ($('#m').val().substring(0, 6) == '/color') {
 					color = $('#m').val().toString().substring(7, $('#m').val().length);
 					$('#m').val('');
@@ -115,6 +115,7 @@
 			} else {
 				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red"><p> You were spamming, you now have a time out of </p><p style="color: purple">' + isSpam + '</p><p> seconds</p></li>');	
 			}
+			$('#m').val('');
 			return false;
 		});
 		
