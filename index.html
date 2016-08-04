@@ -59,10 +59,6 @@
 		var spamTime = 0;
 		var isSpam = 0;
 		var messagesSent = 0;
-		document.cookie = "spamTime = 0;"
-		document.cookie = "hasSent = false;"
-		document.cookie = "isSpam = " + isSpam + ";"
-		document.cookie = "messagesSent = " + messagesSent + ";"
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -171,6 +167,10 @@
 			'background': color
 		});
 		setInterval(spamCounter, 1000/1);
+		document.cookie = "spamTime = " + spamTime + ";"
+		document.cookie = "hasSent = " + hasSent + ";"
+		document.cookie = "isSpam = " + isSpam + ";"
+		document.cookie = "messagesSent = " + messagesSent + ";"
   	</script>
   </body>
 </html>
