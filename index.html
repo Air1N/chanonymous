@@ -57,6 +57,7 @@
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
 		
+		document.cookie = "hasSent = false;"
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -87,6 +88,7 @@
 		
 		$('form').submit(function() {
 			socket.emit('color message', color);
+			document.cookie = "hasSent = true;"
 			if ($('#m').val().substring(0, 6) == '/color') {
 				color = $('#m').val().toString().substring(7, $('#m').val().length);
 				$('#m').val('');
@@ -100,9 +102,20 @@
 			}
 			return false;
 		});
+		spamCounter() {
+			if (getCookie("hasSent") == "true") {
+				spamTime--;
+				if (spamTime === 0) {
+					spamTime = 5;
+					document.cookie = "hasSent = false;"
+				}
+			}
+		}
+		
+		setInterval(spamCounter, 1/1000)
 		
 		socket.on('chat message', function(msg){
-			if (msg.toLowerCase().indexOf("<img") != 0 && msg.toLowerCase().indexOf("<script") != 0) {
+			if (getCookie("hasSent") == "false" && != 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
 				if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 					$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
@@ -110,6 +123,8 @@
 					//$('#messages').append($('<li style="color:' + colorb + '">').text(msg)).insertBefore('#aboveMe');
 					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 				}
+			} else {
+				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '"> That wasn't sent, you're sending messages too fast! </li>');	
 			}
 		});
 		
