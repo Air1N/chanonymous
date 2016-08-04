@@ -44,6 +44,24 @@
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
 		
+		
+		function getCookie(cname) {
+    			var name = cname + "=";
+    			var ca = document.cookie.split(';');
+    			for(var i = 0; i <ca.length; i++) {
+        			var c = ca[i];
+        			while (c.charAt(0)==' ') {
+            			c = c.substring(1);
+        		}
+			if (c.indexOf(name) == 0) {
+            			return c.substring(name.length,c.length);
+        		}
+    			}
+    			return "";
+		}
+		
+		color = getCookie("color");
+		
 		function ScrollDown() {
 			document.body.scrollTop += 5;
 		}
@@ -62,6 +80,7 @@
 				$('.color-pick').css({
 					'background': color
 				});
+				document.cookie = "color = " + color + ";"
 			} else {
 				socket.emit('chat message', $('#m').val());
 				$('#m').val('');
