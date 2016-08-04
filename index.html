@@ -121,6 +121,10 @@
 				document.cookie = "messagesSent = 0;"
 			}
 			
+			if (getCookie("spamTime") >= 1 && getCookie("messagesSent") >= 3) {
+				isSpam = 60;
+			}
+			
 			document.cookie = "isSpam = " + isSpam + ";"
 			
 			
