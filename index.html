@@ -138,8 +138,7 @@
 			}
 			
 			document.cookie = "isSpam = " + isSpam + ";"
-			
-			if (getCookie("isSpam") === 0) {
+			if (getCookie("isSpam") === "0") {
 				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: lime;"><p style="display: inline-block;">Your mute is over! You may now chat again!</p></li>');	
 			}
 			
