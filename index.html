@@ -43,7 +43,7 @@
 		var socket = io();
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
-		
+		var document.body.scrollTop = 0;
 		socket.on('color message', function(colora){
 			colorb = colora;
 		});
