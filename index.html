@@ -48,6 +48,12 @@
 			colorb = colora;
 		});
 		
+		function ScrollDown() {
+			document.body.scrollTop += 1;
+		}
+		
+		setInterval(ScrollDown, 100/1000);
+		
 		$('form').submit(function() {
 			socket.emit('color message', color);
 			if ($('#m').val().substring(0, 6) == '/color') {
@@ -80,18 +86,12 @@
 			} else {
 				document.getElementById('online-color').innerHTML = '<strong>1 person online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong>'
 			}
-			});
+		});
 		
 		var cw = $('.color-pick').width();
 		$('.color-pick').css({
     			'height': cw + 'px'
 		});
-		
-		function ScrollDown() {
-			document.body.scrollTop += 1;
-		}
-		
-		setInterval(ScrollDown, 100/1000)
 	</script>
 	<div>
   	<button class="color-pick" style="border-radius: 100%; display: inline; position: fixed; bottom: 16.75px; right: 13.25%"></button><p id="online-color" style="font-size: 12px; display: inline; position: fixed; top: 15px; right: 5px"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
