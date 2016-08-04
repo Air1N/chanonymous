@@ -56,8 +56,12 @@
 		var socket = io();
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
+		var spamTime = 0;
+		var messagesSent = 0;
 		document.cookie = "spamTime = 0;"
 		document.cookie = "hasSent = false;"
+		document.cookie = "isSpam = " + isSpam + ";"
+		document.cookie = "messagesSent = " + messagesSent + ";"
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -103,13 +107,26 @@
 		});
 		
 		function spamCounter() {
-			document.cookie = "hasSent = false;"
+			spamTime--;
+			isSpam--;
+			document.cookie = "spamTime = " + spamTime + ";"
+			if (getCookie("hasSent") == "true" && getCookie("spamTime") <= 0) {
+				spamTime = 5;
+				document.cookie = "hasSent = false;"
+			}
+			
+			if (getCookie("spamTime") <= 0) {
+				messages = 0;
+				document.cookie = "messagesSent = 0;"
+			}
+			
+			document.cookie = "isSpam = " + isSpam + ";"
 		}
 		
 		setInterval(spamCounter, 1/1000)
 		
 		socket.on('chat message', function(msg){
-			if (getCookie("hasSent") == "false" && msg.toLowerCase().indexOf("<script") != 0) {
+			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
 				if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 					$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
@@ -118,8 +135,10 @@
 					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 				}
 				document.cookie = "hasSent = true;"
+				messagesSent++;
+				document.cookie = "messagesSent = " + messagesSent + ";"
 			} else {
-				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '"> That wasn'+ "'" +'t sent, you'+ "'" + 're sending messages too fast! </li>');	
+				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red"> You were spamming, you now have a time out of' + isSpam + ' seconds</li>');	
 			}
 		});
 		
