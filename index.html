@@ -122,6 +122,9 @@
 			}
 			
 			document.cookie = "isSpam = " + isSpam + ";"
+			
+			
+			print('isSpam: ' + isSpam + ' spamTime: ' + spamTime + ' messagesSent: ' + messagesSent);
 		}
 		
 		socket.on('chat message', function(msg){
@@ -163,7 +166,7 @@
   		$('.color-pick').css({
 			'background': color
 		});
-		setInterval(spamCounter, 0.1/1000);
+		setInterval(spamCounter, 1/1000);
   	</script>
   </body>
 </html>
