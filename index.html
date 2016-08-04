@@ -108,8 +108,8 @@
 		});
 		
 		function spamCounter() {
-			spamTime--;
-			isSpam--;
+			spamTime -= 1;
+			isSpam -= 1;
 			document.cookie = "spamTime = " + spamTime + ";"
 			if (getCookie("hasSent") == "true" && getCookie("spamTime") <= 0) {
 				spamTime = 5;
