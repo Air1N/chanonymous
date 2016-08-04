@@ -129,15 +129,15 @@
 		socket.on('chat message', function(msg){
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
+				document.cookie = "hasSent = true;"
+				messagesSent++;
+				document.cookie = "messagesSent = " + messagesSent + ";"
 				if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
 					$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
 				} else {
 					//$('#messages').append($('<li style="color:' + colorb + '">').text(msg)).insertBefore('#aboveMe');
 					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 				}
-				document.cookie = "hasSent = true;"
-				messagesSent++;
-				document.cookie = "messagesSent = " + messagesSent + ";"
 			} else {
 				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red"> You were spamming, you now have a time out of' + isSpam + ' seconds</li>');	
 			}
