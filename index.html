@@ -12,7 +12,7 @@
       #messages { list-style-type: none; margin: 0; padding: 0; width: 100%;}
       #messages li { padding: 2px 10px; border: 1px #202020 solid;}
       #messages li:nth-child(odd) { background: #505050; }
-      .color-pick {width: 20px; height: 20px; background: #e0e0e0; bottom: 2.5%; right: 13.5%; padding: 10px; margin-right: 0.5%; margin-left: .5%}
+      .color-pick {border-radius: 100%; width: 20px; height: 20px; background: #e0e0e0; bottom: 2.5%; right: 13.5%; padding: 10px; margin-right: 0.5%; margin-left: .5%}
       @media only screen and (max-width: 1000px) {
       	* { margin: 0; padding: 0; box-sizing: border-box; }
       	body { font: 3em Helvetica, Arial; width: 100%; display: block;}
@@ -23,7 +23,7 @@
       	#messages li { padding: 5px 10px; border: 1px #202020 solid;}
       	#messages li:nth-child(odd) { background: #505050;}
       	input, select, textarea { font-size: 16px; }
-      	.color-pick {position: absolute; width: 80%; height: 2%; background: #e0e0e0; margin-right: 0.5%; margin-left: .5%; padding: 10px; bottom: -1%;}
+      	.color-pick {border-radius: 25px; position: absolute; width: 80%; height: 2%; background: #e0e0e0; margin-right: 0.5%; margin-left: .5%; padding: 10px; bottom: -1%;}
       }
     </style>
   </head>
@@ -115,7 +115,7 @@
 		});
 	</script>
 	<div>
-	<button class="color-pick" style="border-radius: 100%; display: inline; position: fixed;"></button>
+	<button class="color-pick" style="display: inline; position: fixed;"></button>
   	<p id="online-color" style="font-size: 12px; display: inline; position: fixed; top: 15px; right: 5px"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	</div>
   	<script>
