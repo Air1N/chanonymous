@@ -112,8 +112,13 @@
 					});
 					document.cookie = "color = " + color + ";"
 				} else {
-					socket.emit('chat message', $('#m').val());
-					$('#m').val('');
+					if ($('#messages').find('li:nth-last-child(4)').height() > 150) {
+						isSpam = 20;
+						$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red;"><p style="display: inline-block;"> Your message was too large, you are now muted for ­</p><p style="color: purple; display: inline-block;">' + isSpam + " ­" + '</p><p style="display: inline-block;">seconds</p></li>');	
+					} else {
+						socket.emit('chat message', $('#m').val());
+						$('#m').val('');
+					}
 				}
 				
 			} else {
@@ -141,10 +146,6 @@
 				isSpam = 60;
 			}
 			
-			//if ($('#messages').find('li:nth-last-child(1)').height) {
-			//	isSpam = 60;
-			//}
-			
 			document.cookie = "isSpam = " + isSpam + ";"
 			if (getCookie("isSpam") === "0") {
 				$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: lime;"><p style="display: inline-block;">Your mute is over! You may now chat again!</p></li>');	
@@ -154,7 +155,7 @@
 		}
 		
 		socket.on('chat message', function(msg){
-			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0 && msg.toLowerCase().indexOf("<img") != 0) {
+			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
 				isLink = false;
 				msgLink = msg.split(' ');
