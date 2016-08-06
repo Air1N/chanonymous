@@ -118,6 +118,7 @@
 						
 						$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red;"><p style="display: inline-block;"> Your message was too large, you are now muted for ­</p><p style="color: purple; display: inline-block;">&nbsp;20&nbsp;</p><p style="display: inline-block;">seconds</p></li>');	
 					} else {
+						$('#messages').find(' > li:nth-last-child(3)').remove;
 						socket.emit('chat message', $('#m').val());
 						$('#m').val('');
 					}
