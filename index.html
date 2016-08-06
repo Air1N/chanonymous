@@ -159,7 +159,7 @@
 		
 		socket.on('chat message', function(msg){
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
-				msg = msg.replace(/Kappa/gi, "<img src='https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjjgNi-0KzOAhXGJh4KHTvCDrYQjRwIBw&url=http%3A%2F%2Fknowyourmeme.com%2Fmemes%2Fkappa&psig=AFQjCNEeTUrFDlf7Y2Lb9u19qEw0PkejkA&ust=1470567355834192"></img>');
+				msg = msg.replace(/Kappa/gi, "<img src='https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjjgNi-0KzOAhXGJh4KHTvCDrYQjRwIBw&url=http%3A%2F%2Fknowyourmeme.com%2Fmemes%2Fkappa&psig=AFQjCNEeTUrFDlf7Y2Lb9u19qEw0PkejkA&ust=1470567355834192'></img>");
 				isLink = false;
 				msgLink = msg.split(' ');
 				for (i = 0; i < msgLink.length; i++) {
