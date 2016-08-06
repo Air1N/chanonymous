@@ -49,7 +49,7 @@
     	<div id='bottom'></div>
     </div>
     <form action="">
-      <input id="m" autocomplete="off" style="border-radius: 15px;"/>
+      <input id="m" autocomplete="off" style="border-radius: 15px;" max="10"/>
       <button style="border-radius: 25px;" class="change-mobile">Send</button>
     </form>
 	<script src="/socket.io/socket.io.js"></script>
@@ -150,7 +150,7 @@
 		}
 		
 		socket.on('chat message', function(msg){
-			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0 && msg.length < 250) {
+			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
 				isLink = false;
 				msgLink = msg.split(' ');
