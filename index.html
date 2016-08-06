@@ -150,7 +150,7 @@
 		}
 		
 		socket.on('chat message', function(msg){
-			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
+			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0 && msg.length < 250) {
 				msg = msg.replace(/:D/gi, ":-D");
 				isLink = false;
 				msgLink = msg.split(' ');
