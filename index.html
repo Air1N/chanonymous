@@ -57,6 +57,7 @@
 		var socket = io();
 		var color = "#e0e0e0";
 		var colorb = "#e0e0e0";
+		var isLink = false;
 		
 		if (getCookie("spamTime") == "") {
 			document.cookie = "spamTime = " + "0" + ";"
@@ -149,14 +150,24 @@
 		socket.on('chat message', function(msg){
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
-				if (msg.substring(0, 7) == 'https:/' || msg.substring(0, 6) == 'http:/') {
-					$('#messages').find(' > li:nth-last-child(3)').before('<a href=' + msg + ' target="_blank"> <li style="color:' + colorb + '">' + msg + '</li></a>');
-				} else {
-					//$('#messages').append($('<li style="color:' + colorb + '">').text(msg)).insertBefore('#aboveMe');
+				isLink = false;
+				for (i = 0; i < msg.split(' ').length; i++) {
+					if (msg.split(' ')[i].substring(0, 7) == 'https:/') {
+						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="display:inline"></p><a href=' + msg.split(' ')[i].toString() + ' target="_blank"> <li style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</li></a><p style="display: inline"></p></div>');
+						isLink = true;
+					}
+					
+					if (msg.split(' ')[i].substring(0, 6) == 'http:/') {
+						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="display:inline"></p><a href=' + msg.split(' ')[i].toString() + ' target="_blank"> <li style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</li></a><p style="display: inline"></p></div>');
+						isLink = true;
+					}
+				}
+				
+				if (!isLink){
 					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 				}
 			}
-		});
+		);
 		
 		socket.on('connectionSend', function(connections){
 			console.log(connections);
