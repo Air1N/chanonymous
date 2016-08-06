@@ -153,12 +153,12 @@
 				isLink = false;
 				for (i = 0; i < msg.split(' ').length; i++) {
 					if (msg.split(' ')[i].substring(0, 7) == 'https:/') {
-						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(i, 0).splice(0, 1) + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + msg.split(' ').slice(i).splice(0, 1) + '</li></div>');
+						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(i, 0).toString() + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + msg.split(' ').slice(i).splice(0, 1).toString() + '</li></div>');
 						isLink = true;
 					}
 					
 					if (msg.split(' ')[i].substring(0, 6) == 'http:/') {
-						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(i, 0).splice(0, 1) + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + msg.split(' ').slice(i).splice(0, 1) + '</li></div>');
+						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(i, 0).toString() + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + msg.split(' ').slice(i).splice(0, 1).toString() + '</li></div>');
 						isLink = true;
 					}
 				}
