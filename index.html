@@ -156,11 +156,11 @@
 				msgLink = msg.split(' ');
 				for (i = 0; i < msgLink.length; i++) {
 					if (msgLink[i].substring(0, 8) == 'https://') {
-						$('#messages').find(' > li:nth-last-child(3)').before(('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(0, i).join(' ') + "&nbsp;" + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + "&nbsp;" + msg.split(' ').slice(i, msg.split(' ').length).splice(1, msg.split(' ').length).join(' ') + '</li></div>'));
+						msgLink[i] = '<a href=' + msgLink[i] + ' style="color: rgb(123,123,255)" target="_blank">' + msgLink[i] + '</a>';
 						isLink = true;
 					}
 					if (msgLink[i].substring(0, 7) == 'http://') {
-						msgLink[i] = '<a href=' + msgLink[i] + ' style="' + colorb + '" target="_blank">' + msgLink[i] + '</a>';
+						msgLink[i] = '<a href=' + msgLink[i] + ' style="color: rgb(123,123,255)" target="_blank">' + msgLink[i] + '</a>';
 						isLink = true;
 						
 						//console.log(msg.split(' ').slice(i, msg.split(' ').length));
