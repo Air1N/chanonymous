@@ -167,9 +167,11 @@
 					}
 				}
 				
-				msgLink.splice(0,0,'<div style="display:inline"><li style="color:' + colorb + '">')
-				msgLink[msgLink.length] = "</li></div>"
-				msgLink = msgLink.join(' ')
+				if (isLink) {
+					msgLink.splice(0,0,'<div style="display:inline"><li style="color:' + colorb + '">')
+					msgLink[msgLink.length] = "</li></div>"
+					msgLink = msgLink.join(' ')
+				}
 				
 				$('#messages').find(' > li:nth-last-child(3)').before((msgLink)); // Append message
 				
