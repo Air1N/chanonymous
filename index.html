@@ -153,12 +153,12 @@
 				isLink = false;
 				for (i = 0; i < msg.split(' ').length; i++) {
 					if (msg.split(' ')[i].substring(0, 7) == 'https:/') {
-						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="display:inline"></p><a href=' + msg.split(' ')[i].toString() + ' target="_blank"> <li style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</li></a><p style="display: inline"></p></div>');
+						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="display:inline"> This is HTTPS </p><a href=' + msg.split(' ')[i].toString() + ' target="_blank"> <li style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</li></a><p style="display: inline"> This is still HTTPS </p></div>');
 						isLink = true;
 					}
 					
 					if (msg.split(' ')[i].substring(0, 6) == 'http:/') {
-						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="display:inline"></p><a href=' + msg.split(' ')[i].toString() + ' target="_blank"> <li style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</li></a><p style="display: inline"></p></div>');
+						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="display:inline"> This is an HTTP </p><a href=' + msg.split(' ')[i].toString() + ' target="_blank"> <li style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</li></a><p style="display: inline"> THIS IS STILL HTTP </p></div>');
 						isLink = true;
 					}
 				}
