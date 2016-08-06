@@ -112,7 +112,7 @@
 					});
 					document.cookie = "color = " + color + ";"
 				} else {
-					if ($('#messages').find('li:nth-last-child(4)').height() > 150) {
+					if ($('#m').val().height() > 150) {
 						isSpam = 20;
 						$('#messages').find(' > li:nth-last-child(3)').before('<li style="color: red;"><p style="display: inline-block;"> Your message was too large, you are now muted for ­</p><p style="color: purple; display: inline-block;">&nbsp;20&nbsp;</p><p style="display: inline-block;">seconds</p></li>');	
 					} else {
