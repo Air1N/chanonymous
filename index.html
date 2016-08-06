@@ -159,7 +159,7 @@
 		
 		socket.on('chat message', function(msg){
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
-				msg = msg.replace(/Kappa/gi, "<img src='http://i3.kym-cdn.com/photos/images/newsfeed/000/925/494/218.png_large' width='50px' height='50px'></img>");
+				msg = msg.replace(/Kappa/gi, "<img src='http://i3.kym-cdn.com/photos/images/newsfeed/000/925/494/218.png_large' width='50px' height='50px' style='vertical-align:middle'></img>");
 				isLink = false;
 				msgLink = msg.split(' ');
 				for (i = 0; i < msgLink.length; i++) {
