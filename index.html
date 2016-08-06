@@ -112,7 +112,7 @@
 					});
 					document.cookie = "color = " + color + ";"
 				} else {
-					$('#messages').find(' > li:nth-last-child(3)').before('<li>' + msg + '</li>').height()
+					$('#messages').find(' > li:nth-last-child(3)').before('<li>' + $('#m').val().toString() + '</li>').height()
 					if ($('#messages').find(' > li:nth-last-child(3)').height() > 150) {
 						isSpam = 20;
 						
