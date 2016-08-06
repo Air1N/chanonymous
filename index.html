@@ -152,14 +152,14 @@
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
 				msg = msg.replace(/:D/gi, ":-D");
 				isLink = false;
+				
 				for (i = 0; i < msg.split(' ').length; i++) {
 					if (msg.split(' ')[i].substring(0, 7) == 'https:/') {
-						$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(i, 0).join(' ') + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + msg.split(' ').slice(i).splice(0, 1).toString() + '</li></div>');
+						$('#messages').find(' > li:nth-last-child(3)').before(('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(0, i).join(' ') + "&nbsp;" + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + "&nbsp;" + msg.split(' ').slice(i, msg.split(' ').length).splice(1, msg.split(' ').length).join(' ') + '</li></div>');
 						isLink = true;
 					}
-					var msgLink = '<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(0, i).join(' ') + "&nbsp;" + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + "&nbsp;" + msg.split(' ').slice(i, msg.split(' ').length).splice(1, msg.split(' ').length).join(' ') + '</li></div>'
 					if (msg.split(' ')[i].substring(0, 6) == 'http:/') {
-						$('#messages').find(' > li:nth-last-child(3)').before(('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(0, i).join(' ') + "&nbsp;" + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + "&nbsp;" + msg.split(' ').slice(i, msg.split(' ').length).splice(1, msg.split(' ').length).join(' ') + '</li></div>').replace()
+						$('#messages').find(' > li:nth-last-child(3)').before(('<div style="display:inline"><li style="color:' + colorb + '">' + msg.split(' ').slice(0, i).join(' ') + "&nbsp;" + '<a href=' + msg.split(' ')[i].toString() + ' style="color:' + colorb + '">' + msg.split(' ')[i].toString() + '</a>' + "&nbsp;" + msg.split(' ').slice(i, msg.split(' ').length).splice(1, msg.split(' ').length).join(' ') + '</li></div>');
 						isLink = true;
 						
 						console.log(msg.split(' ').slice(i, msg.split(' ').length));
