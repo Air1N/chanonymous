@@ -71,6 +71,8 @@
 		var spamTime = getCookie("spamTime");
 		var isSpam = getCookie("isSpam");
 		var messagesSent = getCookie("messagesSent");
+		var my_mute = false;
+		
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -131,6 +133,28 @@
 			$('#m').val('');
 			return false;
 		});
+		
+		function toggleMute () {
+			my_mute = !my_mute;
+			$('audio,video').each(function(){
+        		if (!my_mute) {
+
+            			if( !$(this).paused ) {
+                			$(this).data('muted',true); //Store elements muted by the button.
+                			$(this).pause(); // or .muted=true to keep playing muted
+            			}
+
+        			} else {
+
+            			if( $(this).data('muted') ) {
+        				$(this).data('muted',false);
+                			$(this).play(); // or .muted=false
+            			}
+
+        			}
+			});
+		}
+		
 		
 		function spamCounter() {
 			spamTime -= 1;
@@ -210,7 +234,7 @@
 	</script>
 	<div>
 	<button class="color-pick" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;"></button>
-  	<button class="sound-button" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;">Sound: On</button>
+  	<button class="sound-button" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;" onclick="toggleSound()">Sound: On</button>
   	<p id="online-color" class="mobile-change" style="display: inline;"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	</div>
   	<script>
