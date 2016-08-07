@@ -97,8 +97,6 @@
 			document.body.scrollTop += 1;
 		}
 		
-		setInterval(ScrollDown, 5/1000);
-		
 		socket.on('color message', function(colora){
 			colorb = colora;
 		});
@@ -233,6 +231,10 @@
 				}
 				
 				if (!my_mute) ding.play();
+				
+				for (i=0; i<$('#messages').find('li:nth-last-child(4)').height(); i++) {
+					ScrollDown();
+				}
 			}
 		});
 		
