@@ -138,10 +138,10 @@
 			my_mute = !my_mute;
 			if (!my_mute) {
 				$("#sound-button").css("background","#004400");
-				document.getElementById('sound-button').innerHTML = "<img src='http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg' style='width: 20px; height: 20px;' />"
+				document.getElementById('sound-button').innerHTML = "<img src='http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg' style='width: 20px; height: 20px; filter: invert(1);' />"
 			} else {
 				$("#sound-button").css("background","#440000");
-				document.getElementById('sound-button').innerHTML = "<img src='http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg' style='width: 20px; height: 20px;' />"
+				document.getElementById('sound-button').innerHTML = "<img src='http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg' style='width: 20px; height: 20px; filter: invert(1);' />"
 			}
 		}
 		
@@ -242,7 +242,7 @@
 	</script>
 	<div>
 	<button class="color-pick" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;"></button>
-  	<button id="sound-button" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;" onclick="toggleMute(); toggleSound();"><img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" style="width: 20px; height: 20px;" /></button>
+  	<button id="sound-button" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;" onclick="toggleMute(); toggleSound();"><img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" style="width: 20px; height: 20px; filter: invert(1);" /></button>
   	<p id="online-color" class="mobile-change" style="display: inline;"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	</div>
   	<script>
