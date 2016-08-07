@@ -159,7 +159,8 @@
 		
 		socket.on('chat message', function(msg){
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
-				msg = msg.replace(/Kappa/gi, "<img src='https://static-cdn.jtvnw.net/emoticons/v1/25/1.0' width='25px' height='28px' style='vertical-align:middle'></img>");
+				msg = msg.replace(/Kappa/g, "<img src='https://static-cdn.jtvnw.net/emoticons/v1/25/1.0' width='25px' height='28px' style='vertical-align:middle'></img>");
+				msg = msg.replace(/ariLUL/g, "<img src='https://cdn.betterttv.net/emote/57935bd64c60f58f1ecf3a93/1x' width='25px' height='28px' style='vertical-align:middle'></img>");
 				isLink = false;
 				msgLink = msg.split(' ');
 				for (i = 0; i < msgLink.length; i++) {
