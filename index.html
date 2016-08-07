@@ -136,6 +136,11 @@
 		
 		function toggleMute() {
 			my_mute = !my_mute;
+			if (!my_mute) {
+				$("#sound-button").css("background","#224422");
+			} else {
+				$("#sound-button").css("background","#442222");
+			}
 		}
 		
 		function toggleSound() {
@@ -148,7 +153,6 @@
             			}
 
         		} else {
-        			$("#sound-button").css("background","#224422");
             			if( $(this).data('muted') ) {
         				$(this).data('muted',false);
                 			$(this).play(); // or .muted=false
