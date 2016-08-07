@@ -222,14 +222,14 @@
 				}
 				
 				if (isLink) {
-					msgLink.splice(0,0,'<div style="display:inline"><li style="color:' + colorb + '">')
-					msgLink[msgLink.length] = "</li></div>"
+					msgLink.splice(0,0,'<li style="color:' + colorb + '">')
+					msgLink[msgLink.length] = "</li>"
 					msgLink = msgLink.join(' ')
 					$('#messages').find(' > li:nth-last-child(3)').before((msgLink)); // Append message
 				}
 				
 				if (!isLink){
-					$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li><p style="color: #707070; font-size: 12px; margin-right: 5px; display: inline-block;">' + hour + ":" + minute + '</p><p style="color:' + colorb + '; display: inline-block;">' + msg + '</p></li></div>');
+					$('#messages').find(' > li:nth-last-child(3)').before('<li><p style="color: #707070; font-size: 12px; margin-right: 5px; display: inline-block;">' + hour + ":" + minute + '</p><p style="color:' + colorb + '; display: inline-block;">' + msg + '</p></li>');
 				}
 				
 				if (!my_mute) ding.play();
