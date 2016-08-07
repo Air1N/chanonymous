@@ -210,11 +210,11 @@
 				msgLink = msg.split(' ');
 				for (i = 0; i < msgLink.length; i++) {
 					if (msgLink[i].substring(0, 8) == 'https://') {
-						msgLink[i] = '<a href=' + msgLink[i] + ' style="color: rgb(123,123,255)" target="_blank">' + msgLink[i] + '</a>';
+						msgLink[i] = '<p style="color: #707070; font-size: 12px; margin-right: 5px; display: inline-block;">' + hour + ":" + minute + '</p><a href=' + msgLink[i] + ' style="color: rgb(123,123,255)" target="_blank">' + msgLink[i] + '</a>';
 						isLink = true;
 					}
 					if (msgLink[i].substring(0, 7) == 'http://') {
-						msgLink[i] = '<a href=' + msgLink[i] + ' style="color: rgb(123,123,255)" target="_blank">' + msgLink[i] + '</a>';
+						msgLink[i] = '<p style="color: #707070; font-size: 12px; margin-right: 5px; display: inline-block;">' + hour + ":" + minute + '</p><a href=' + msgLink[i] + ' style="color: rgb(123,123,255)" target="_blank">' + msgLink[i] + '</a>';
 						isLink = true;
 						
 						//console.log(msg.split(' ').slice(i, msg.split(' ').length));
