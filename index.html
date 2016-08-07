@@ -75,6 +75,7 @@
 		var date = new Date();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
+		var scrollDistance = 0;
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -94,7 +95,8 @@
 		color = getCookie("color");
 		
 		function ScrollDown() {
-			document.body.scrollTop += 1;
+			document.body.scrollTop += scrollDistance/3 + 1;
+			scrollDistance -= scrollDisance/3 + 1;
 		}
 		
 		socket.on('color message', function(colora){
@@ -232,9 +234,9 @@
 				
 				if (!my_mute) ding.play();
 				
-				for (i=0; i<$('#messages').find('li:nth-last-child(4)').height(); i++) {
-					ScrollDown();
-				}
+				
+				scrollDistance += $('#messages').find('li:nth-last-child(4)').height() + 15;
+				scrollDown();
 			}
 		});
 		
