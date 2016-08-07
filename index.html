@@ -229,7 +229,7 @@
 				}
 				
 				if (!isLink){
-					$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li><p style="color: #707070; font-size: 12px; margin-right: 5px;">' + hour + ":" + minute + '</p><p style="color:' + colorb + '">' + msg + '</p></li></div>');
+					$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><li><p style="color: #707070; font-size: 12px; margin-right: 5px; display: inline-block;">' + hour + ":" + minute + '</p><p style="color:' + colorb + '; display: inline-block;">' + msg + '</p></li></div>');
 				}
 				
 				if (!my_mute) ding.play();
