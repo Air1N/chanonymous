@@ -158,10 +158,11 @@
 		}
 		
 		socket.on('chat message', function(msg){
-			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0) {
+			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0 && msg.split(' ').toString() != "") {
 				msg = msg.replace(/Kappa/g, "<img src='https://static-cdn.jtvnw.net/emoticons/v1/25/1.0' width='25px' height='28px' style='vertical-align:middle'></img>");
 				msg = msg.replace(/ariLUL/g, "<img src='https://cdn.betterttv.net/emote/57935bd64c60f58f1ecf3a93/1x' width='28px' height='28px' style='vertical-align:middle'></img>");
 				msg = msg.replace(/ariOkay/g, "<img src='https://cdn.betterttv.net/emote/5793b2db4c60f58f1ecf3bf9/1x' width='28px' height='28px' style='vertical-align:middle'></img>");
+				
 				isLink = false;
 				msgLink = msg.split(' ');
 				for (i = 0; i < msgLink.length; i++) {
@@ -208,6 +209,7 @@
 	</script>
 	<div>
 	<button class="color-pick" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;"></button>
+  	<button class="color-pick" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;"></button>
   	<p id="online-color" class="mobile-change" style="display: inline;"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
   	</div>
   	<script>
