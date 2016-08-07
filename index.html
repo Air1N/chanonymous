@@ -21,8 +21,7 @@
     		outline: none;
 	}
 	.change-mobile {font: 1.2em 'Source Sans Pro', sans-serif; font-weight: bold;}
-	#sound-button {right: 5px; border-radius: 100%; position: absolute; width: 40px; height: 40px; background: #224422; margin-right: 0.5%; margin-left: .5%; padding: 10px; top: 25px;}
-        #sound-button-image {-webkit-filter: invert(100%); filter: invert(100%); margin-bottom: 10px;};
+	#sound-button {right: 5px; border-radius: 100%; position: absolute; width: 40px; height: 40px; background: #224422; margin-right: 0.5%; margin-left: .5%; top: 25px;}
       @media only screen and (max-width: 1000px) {
       	* { margin: 0; padding: 0; box-sizing: border-box; }
       	body {font: 2.8em 'Source Sans Pro', sans-serif; font-weight: bold; width: 100%; display: block;}
@@ -73,7 +72,9 @@
 		var isSpam = getCookie("isSpam");
 		var messagesSent = getCookie("messagesSent");
 		var my_mute = false;
-		
+		var date = new Date();
+		var hour = date.getHours();
+		var minute = date.getMinutes();
 		
 		function getCookie(cname) {
     			var name = cname + "=";
@@ -139,10 +140,10 @@
 			my_mute = !my_mute;
 			if (!my_mute) {
 				$("#sound-button").css("background","#004400");
-				document.getElementById('sound-button').innerHTML = "<img id='sound-button-image' src='http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg' style='width: 20px; height: 20px;' />"
+				document.getElementById('sound-button').innerHTML = "<img id='sound-button-image' src='http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg' style='width: 20px; height: 20px; -webkit-filter: invert(100%); filter: invert(100%); margin-bottom: 10px;' />"
 			} else {
 				$("#sound-button").css("background","#440000");
-				document.getElementById('sound-button').innerHTML = "<img id='sound-button-image' src='http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg' style='width: 20px; height: 20px;' />"
+				document.getElementById('sound-button').innerHTML = "<img id='sound-button-image' src='http://upload.wikimedia.org/wikipedia/commons/3/3f/Mute_Icon.svg' style='width: 20px; height: 20px; -webkit-filter: invert(100%); filter: invert(100%); margin-bottom: 10px;' />"
 			}
 		}
 		
@@ -192,6 +193,14 @@
 		}
 		
 		socket.on('chat message', function(msg){
+			date = new Date();
+			hour = date.getHours();
+			minute = date.getMinutes();
+			
+			if (hour > 12) {
+				hour -= 12;
+			}
+			
 			if (getCookie("isSpam") <= 0 && msg.toLowerCase().indexOf("<script") != 0 && msg.split(' ').join('').toString() != "") {
 				msg = msg.replace(/Kappa/g, "<img src='https://static-cdn.jtvnw.net/emoticons/v1/25/1.0' width='25px' height='28px' style='vertical-align:middle'></img>");
 				msg = msg.replace(/ariLUL/g, "<img src='https://cdn.betterttv.net/emote/57935bd64c60f58f1ecf3a93/1x' width='28px' height='28px' style='vertical-align:middle'></img>");
@@ -220,7 +229,7 @@
 				}
 				
 				if (!isLink){
-					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
+					$('#messages').find(' > li:nth-last-child(3)').before('<div style="display:inline"><p style="color: #707070; font-size: 12px">' + hour + ":" + minute + '</p><li style="color:' + colorb + '">' + msg + '</li></div>');
 				}
 				
 				if (!my_mute) ding.play();
