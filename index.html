@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Chanonymous - Chat Anonymously</title>
+    <title>Chanonymousy</title>
     <meta name="viewport" content="user-scalable=0"/>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
@@ -60,7 +60,7 @@
 		var colorb = "#e0e0e0";
 		var isLink = false;
 		var hrefLink = "";
-		
+		var ding = new Audio('https://www.freesound.org/people/theta4/sounds/66136/download/66136__theta4__ding30603-spedup.wav');
 		if (getCookie("spamTime") == "") {
 			document.cookie = "spamTime = " + "0" + ";"
 			document.cookie = "hasSent = " + "false" + ";"
@@ -185,6 +185,8 @@
 				if (!isLink){
 					$('#messages').find(' > li:nth-last-child(3)').before('<li style="color:' + colorb + '">' + msg + '</li>');
 				}
+				
+				ding.play()
 			}
 		});
 		
