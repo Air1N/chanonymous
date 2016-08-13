@@ -49,10 +49,6 @@
     	</ul>
     	<div id='bottom'></div>
     </div>
-    <form action="">
-      <input id="m" autocomplete="off" style="border-radius: 15px;" maxlength="1000"/>
-      <button style="border-radius: 25px;" class="change-mobile">Send</button>
-    </form>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script>
@@ -255,6 +251,10 @@
 		});
 	</script>
 	<div>
+	<form action="">
+      		<input id="m" autocomplete="off" style="border-radius: 15px;" maxlength="1000"/>
+      		<button style="border-radius: 25px;" class="change-mobile">Send</button>
+    	</form>	
 	<button class="color-pick" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;"></button>
   	<button id="sound-button" style="font: 1em 'Concert One', cursive; font-weight: bold; display: inline; position: fixed;" onclick="toggleMute(); toggleSound();"><img src="http://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" style="width: 20px; height: 20px; -webkit-filter: invert(50%); filter: invert(50%); margin-top: 3px;" /></button>
   	<p id="online-color" class="mobile-change" style="display: inline;"><strong>%d people online - /color #f6f3f2 or rgb(120, 240, 255) or red</strong></p>
